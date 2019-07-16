@@ -29,6 +29,7 @@ public class ShoppingBasketApplication implements CommandLineRunner {
 
     public static void main(String[] args) {
         SpringApplication.run(ShoppingBasketApplication.class, args);
+        System.out.println("\n");
     }
 
     static final String[] products = new String[]{Soup.ITEM_NAME, Bread.ITEM_NAME, Milk.ITEM_NAME, Apples.ITEM_NAME};
@@ -58,19 +59,20 @@ public class ShoppingBasketApplication implements CommandLineRunner {
             Item item = ItemFactory.getItemObj(args[i]);
             cart.add(item);
             subTotal += item.getPrice();
-        }
-
-        double total = 0;
-        for (int i = 0; i < cart.size(); ++i) {
             for (DiscountHandlerInterface disc : discountHandler.getDiscountHandlers()) {
-                cart.set(i, disc.applyDisount(cart.get(i)));
+                disc.applyDisount(item);
             }
         }
-        total = cart.stream().mapToDouble(elem -> elem.getPrice()).sum();
 
-        output = "Subtotal: £" + subTotal + "\n";
+        double totalDiscount = discountHandler.getDiscountHandlers().stream()
+                .mapToDouble(elem -> elem.getTotalDiscount()).sum();
+
+        String subTotalStr = String.format("%.2f", subTotal).replaceAll("\\,", ".");
+        String totalStr = String.format("%.2f", subTotal - totalDiscount).replaceAll("\\,", ".");
+
+        output = "Subtotal: £" + subTotalStr + "\n";
         output += printOffers(cart);
-        output += "Total price: £" + total;
+        output += "Total price: £" + totalStr;
         System.out.println(output);
     }
 

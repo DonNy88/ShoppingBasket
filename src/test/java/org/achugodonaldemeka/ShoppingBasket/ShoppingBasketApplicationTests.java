@@ -63,4 +63,28 @@ public class ShoppingBasketApplicationTests {
 		Assert.assertEquals(expectedOutput, ShoppingBasketApplication.output);
 	}
 
+	@Test
+	public void input4ItemsWith2Soup1BreadShouldPrintTotalWithBreadAtHalfPriceDiscount() {
+		String expectedOutput = "Subtotal: £3.40\n" + "Bread 50% off: -40p\n" + "Total price: £3.00";
+		String[] argsArray = new String[]{"Bread", "Soup", "Soup", "Milk"};
+
+		ShoppingBasketApplication.main(argsArray);
+
+		Assert.assertEquals(expectedOutput, ShoppingBasketApplication.output);
+	}
+
+	@Test
+	public void input43ItemsWith2Soup1BreadShouldPrintTotalWithBreadAtHalfPriceDiscount() {
+		String expectedOutput =
+				"Subtotal: £5.40\n" +
+				"Apples 10% off: -10p\n" +
+				"Apples 10% off: -10p\n" +
+				"Bread 50% off: -40p\n" +
+				"Total price: £4.80";
+		String[] argsArray = new String[]{"Bread", "Soup", "Soup", "Milk", "Apples", "Apples"};
+
+		ShoppingBasketApplication.main(argsArray);
+
+		Assert.assertEquals(expectedOutput, ShoppingBasketApplication.output);
+	}
 }
