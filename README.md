@@ -12,8 +12,8 @@ mvn clean install
 
 ## Usage
 
-```Java
-java --jar ./target/Shopping-Basket-0.0.1-SNAPSHOT.jar item1 item2 ...
+```Java8
+java -jar ./target/Shopping-Basket-0.0.1-SNAPSHOT.jar item1 item2 ...
 ```
 
 ## Contributing
