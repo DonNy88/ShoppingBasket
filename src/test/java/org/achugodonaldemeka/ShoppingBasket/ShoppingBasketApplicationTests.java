@@ -24,7 +24,7 @@ public class ShoppingBasketApplicationTests {
 
 	@Test
 	public void inputNotValidShouldPrint_This_product_x_is_not_available() {
-		String[] argsArray = new String[]{"Soup", "Milk", "pizza", "bread", "Fagioli"};
+		String[] argsArray = new String[]{"Soup", "milk", "pizza", "bread", "Beans"};
 		ShoppingBasketApplication.main(argsArray);
 		Assert.assertEquals("The product pizza is not available", ShoppingBasketApplication.output);
 	}
