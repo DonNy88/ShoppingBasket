@@ -1,27 +1,20 @@
-# Java Maven CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-java/ for more details
-#
 version: 2
 jobs:
   build:
+    working_directory: ~/circleci-demo-java-spring
     docker:
-      - image: circleci/openjdk:8-jdk
-
-    working_directory: ~/repo
-
-    environment:
-      MAVEN_OPTS: -Xmx3200m
-
+      - image: circleci/openjdk:8-jdk-stretch
     steps:
       - checkout
       - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "pom.xml" }}
-            - v1-dependencies-
-      - run: ./mvnw clean install -DskipTests
+          key: cache-{{ checksum "pom.xml" }}
+      - run: mvn dependency:go-offline
       - save_cache:
           paths:
             - ~/.m2
-          key: v1-dependencies-{{ checksum "pom.xml" }}
-      - run: ./mvnw test
+          key: cache-{{ checksum "pom.xml" }}
+      - run: mvn package
+      - store_test_results:
+          path: target/surefire-reports
+      - store_artifacts:
+          path: target/Shopping-Basket-0.0.1-SNAPSHOT.jar
