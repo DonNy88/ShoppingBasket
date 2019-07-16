@@ -35,12 +35,14 @@ public class ShoppingBasketApplicationTests {
 
 	@Test
 	public void input3ItemsWithoutOffShouldPrintTotalWithoutAnyDiscount() {
-		String expectedOutput = "Subtotal: £1.30\n" + "(No offers available)\n" + "Total price: £1.30";
+		String expectedOutput = "Subtotal: £2.75\n" + "(No offers available)\n" + "Total price: £2.75";
 		String[] argsArray = new String[]{"Soup", "Milk", "bread"};
 
 		ShoppingBasketApplication.main(argsArray);
 
 		Assert.assertEquals(expectedOutput, ShoppingBasketApplication.output);
 	}
+
+
 
 }
