@@ -33,7 +33,6 @@ public class ShoppingBasketApplication implements CommandLineRunner {
                 }
             }
         }
-
         System.out.println(output);
     }
 
