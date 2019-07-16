@@ -74,7 +74,7 @@ public class ShoppingBasketApplicationTests {
 	}
 
 	@Test
-	public void input43ItemsWith2Soup1BreadShouldPrintTotalWithBreadAtHalfPriceDiscount() {
+	public void input6ItemsWith2Soup1BreadAnd2ApplesShouldPrintTotalWithBreadAtHalfPriceDiscountAndApple20pOff() {
 		String expectedOutput =
 				"Subtotal: £5.40\n" +
 				"Apples 10% off: -10p\n" +

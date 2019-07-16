@@ -1,6 +1,5 @@
 package org.achugodonaldemeka.ShoppingBasket;
 
-import lombok.extern.log4j.Log4j2;
 import org.achugodonaldemeka.ShoppingBasket.discountHandler.DiscountHandler;
 import org.achugodonaldemeka.ShoppingBasket.discountHandler.DiscountHandlerInterface;
 import org.achugodonaldemeka.ShoppingBasket.model.Item;
@@ -18,7 +17,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-@Log4j2
 @SpringBootApplication
 public class ShoppingBasketApplication implements CommandLineRunner {
 
@@ -60,7 +58,7 @@ public class ShoppingBasketApplication implements CommandLineRunner {
             cart.add(item);
             subTotal += item.getPrice();
             for (DiscountHandlerInterface disc : discountHandler.getDiscountHandlers()) {
-                disc.applyDisount(item);
+                disc.applyDiscount(item);
             }
         }
 

@@ -12,7 +12,7 @@ public class ApplesDiscountHandler implements DiscountHandlerInterface {
     private double totalDiscount = 0;
 
     @Override
-    public void applyDisount(Item item) {
+    public void applyDiscount(Item item) {
         if (item instanceof Apples) {
             toPrint += "Apples 10% off: -10p\n";
             totalDiscount += 0.10;

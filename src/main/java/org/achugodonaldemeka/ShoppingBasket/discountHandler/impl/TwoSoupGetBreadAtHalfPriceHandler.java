@@ -16,11 +16,10 @@ public class TwoSoupGetBreadAtHalfPriceHandler implements DiscountHandlerInterfa
     int soupCounter = 0;
 
     @Override
-    public void applyDisount(Item item) {
+    public void applyDiscount(Item item) {
         if (item instanceof Soup) {
             ++soupCounter;
-        }
-        if (item instanceof Bread) {
+        } else if (item instanceof Bread) {
             ++breadsCounter;
         }
 
