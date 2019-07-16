@@ -13,11 +13,9 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Shopping-Basket</name>
 	<description>Coding Test ­ Shopping Basket with Spring Boot Command liner</description>
-
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
-
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -55,7 +53,6 @@
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -64,5 +61,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
