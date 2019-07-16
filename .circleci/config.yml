@@ -1,6 +1,10 @@
 version: 2
 jobs:
   build:
+    general:
+      branches:
+        ignore:
+          - /\/.*/
     working_directory: ~/circleci-demo-java-spring
     docker:
       - image: circleci/openjdk:8-jdk-stretch
